@@ -15,6 +15,11 @@ class Persona{
     set apellido(apellido){
         this._apellido = apellido;
     }
+
+    nombreCompleto(){
+        return this._nombre + ' ' + this._apellido;
+    }
+
 }
 
 
@@ -30,7 +35,13 @@ class Empleado extends Persona{
     set departamento(departamento){
         this._departamento = departamento;
     }
+
+    nombreCompleto(){
+        return super.nombreCompleto() + ', ' + this._departamento;
+    }
+
 }
+
 
 let persona1 = new Persona('Juan', 'Perez'); // Calling Set Method
 console.log( persona1 );
@@ -38,3 +49,5 @@ console.log( persona1 );
 let empleado1 = new Empleado('Maria', 'Jimenez', 'Sistemas');
 console.log( empleado1 );
 console.log( empleado1.nombre ); // Calling method GET, it doesn't need "()"
+
+console.log( empleado1.nombreCompleto() ); // Inherited method nombreCompleto, it needs "()"
