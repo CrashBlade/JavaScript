@@ -2,9 +2,7 @@
 // Firts function declaration -- It has HOISTING ------------------------->
 function miFuncionUno (a,b){
     console.log("Suma: "+ (a+b));
-    console.log(arguments.length)   // numero de argumentos que ingresan a la funcion
-                                    // solo puede ser usada dentro de la funcion  
-
+    console.log(arguments.length)   // numero de argumentos que ingresan a la funcion y solo puede ser usada dentro de la funcion  
     console.log(arguments[0]);      // accede al primer argumento posicion 0
 }
 
