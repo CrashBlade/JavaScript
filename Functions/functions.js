@@ -1,12 +1,24 @@
+//------------------------FUNCTION DEFINITIONS EXPLAINED----------------------------
+// - All functions are treated as Objects, therefore they have methods and properties
+// - Hosting means that function could be used before its definition. 
 
-// Firts function declaration -- It has HOISTING ------------------------->
+
+// (1.) function declaration -- It has HOISTING ------------------------->
 function miFuncionUno (a,b){
     console.log("Suma: "+ (a+b));
-    console.log(arguments.length)   // numero de argumentos que ingresan a la funcion y solo puede ser usada dentro de la funcion  
-    console.log(arguments[0]);      // accede al primer argumento posicion 0
+    // "arguments" is a method of objects.
+    console.log(arguments);
+    // "arguments.length" Number of arguments that enter the function. Can only be used inside the function.
+    console.log(arguments.length);  
+    // "arguments[0]" Accesses the firtst argument position.
+    console.log(arguments[0]); 
 }
 
-miFuncionUno(2,3);    // Se llama a la funcion y ella imprime el resultado ella misma. 
+// The function is called and it print the result itself.    
+ miFuncionUno(2,3);
+
+
+
 
 let miFincionTexto = miFuncionUno.toString();  // Imprime la definicion de la funcion. (metodos-variables) 
 console.log(miFincionTexto);
@@ -14,35 +26,40 @@ console.log(miFincionTexto);
 
 
 
-// Second function declaration -- It has HOISTING ------------------------->
+// (2.) function declaration -- It has HOISTING ------------------------->
 function miFuncionDos (a,b){
     return (a+b);
 }
 
+// The function called needs a variable to receive the value!
 let restultadoDos = miFuncionDos(2,3);
 console.log(restultadoDos);
 
 
 
-// Third "Function Type Expression" (anonymous) ------------------------->
-let sumar = function(a,b) {
-    return(a+b);
-};
+// (3.)  "Function TIPO EXPRESION" (anonymous) ------------------------->
+// The function doesn't have a name. WARNING!! it needs (;) at the end of the line.
+let sum = function(a,b) {
+    return(a+b);};
 
-let restultadoTres = sumar(2,3);
+// "sum(2,3)" The variable SUM works like a function. 
+let restultadoTres = sum(2,3);
 console.log(restultadoTres);
 
 
 
-// Fourth Function Self-Invoking -- It isn't reusable ------------------------->
+// (4.) Function SELF-INVOKING -- It isn't reusable ------------------------->
+// The function needs Parenthesis 
+// The function is called afther its definition just using (3,4). Is not reusable!!
 (function (a,b){
     console.log("ejecutando la funcion: " + (a+b));
 })(3,4);
 
 
 
-// Fift Arrow Function      ------------------------->
-const   miFuncionFlecha = (a,b) => (a+b);
+// (5.) Arrow Function      ------------------------->
+
+const  miFuncionFlecha = (a,b) => (a+b);
 let resultadoCinco = miFuncionFlecha(2,3);
 console.log(resultadoCinco);
 
