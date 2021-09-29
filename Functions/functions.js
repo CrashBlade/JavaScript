@@ -6,7 +6,7 @@
 // (1.) function declaration -- It has HOISTING ------------------------->
 function miFuncionUno (a,b){
     console.log("Suma: "+ (a+b));
-    // "arguments" is a method of objects.
+    // "arguments" is a property of objects but functions work as objects
     console.log(arguments);
     // "arguments.length" Number of arguments that enter the function. Can only be used inside the function.
     console.log(arguments.length);  
@@ -18,15 +18,15 @@ function miFuncionUno (a,b){
  miFuncionUno(2,3);
 
 
-
-
-let miFincionTexto = miFuncionUno.toString();  // Imprime la definicion de la funcion. (metodos-variables) 
+// "toString" is a method of objects but functions work as objects
+// "toString" print literaly the code of the function (its methods, its variables) print the function itself
+let miFincionTexto = miFuncionUno.toString();  
 console.log(miFincionTexto);
 
 
 
 
-// (2.) function declaration -- It has HOISTING ------------------------->
+// (2.) function declaration WITH RETURN-- It has HOISTING ------------------------->
 function miFuncionDos (a,b){
     return (a+b);
 }
@@ -37,7 +37,16 @@ console.log(restultadoDos);
 
 
 
-// (3.)  "Function TIPO EXPRESION" (anonymous) ------------------------->
+// (3.) Function SELF-INVOKING -- It isn't reusable ------------------------->
+// The function needs Parenthesis 
+// The function is called afther its definition just using (3,4). Is not reusable!!
+(function (a,b){
+    console.log("ejecutando la funcion: " + (a+b));
+})(3,4);
+
+
+
+// (4.)  "Function TIPO EXPRESION" (anonymous) ------------------------->
 // The function doesn't have a name. WARNING!! it needs (;) at the end of the line.
 let sum = function(a,b) {
     return(a+b);};
@@ -48,50 +57,30 @@ console.log(restultadoTres);
 
 
 
-// (4.) Function SELF-INVOKING -- It isn't reusable ------------------------->
-// The function needs Parenthesis 
-// The function is called afther its definition just using (3,4). Is not reusable!!
-(function (a,b){
-    console.log("ejecutando la funcion: " + (a+b));
-})(3,4);
+// (5.) Function declaration WITH DEFAULT VALUES  ------------------------->
+let myFuncionDefault = function (a = 4, b = 5){
+  
+    console.log(arguments[0]);
+    return (a+b);};
+
+// The function is called whitout arguments because there are default values (4,5)
+resultDefault = myFuncionDefault(); 
+console.log(resultDefault);
 
 
 
-// (5.) Arrow Function      ------------------------->
+// (6.)  function declaration CALLING MORE ARGUMENTS THAN IT HAS ------------------------->
+let miFuncionDefault = function (a = 4, b = 5){
 
-const  miFuncionFlecha = (a,b) => (a+b);
-let resultadoCinco = miFuncionFlecha(2,3);
-console.log(resultadoCinco);
-
-
-
-// Sixth function declaration with default values  ------------------------->
-function miFuncionDefault (a = 4, b = 5 ){
-    console.log("Suma: "+ (a+b));
-    console.log(arguments.length)   // numero de argumentos que ingresan a la funcion
-                                    // solo puede ser usada dentro de la funcion  
-
-    console.log(arguments[0]);      // accede al primer argumento posicion 0
-    
-}
-
-miFuncionDefault();
-
-
-// Seventh function declaration calling more arguments ------------------------->
-function miFuncionDefault (a = 4, b = 5 ){
-    console.log("Suma: "+ (a+b));
-    console.log(arguments.length)   // numero de argumentos que ingresan a la funcion
-                                    // solo puede ser usada dentro de la funcion  
-
-    console.log(arguments[2]);      // accede al primer argumento posicion 0
-    
+    //The function assigns the third value "4" into poscition two even without parameter ( 
+    console.log(arguments[2]);
+    return (a+b);};      
 }
 
 miFuncionDefault(1,2,4);
 
 
-// Eigth function without parameters      ------------------------->
+// (7.) function WITHOUT PARAMETERS      ------------------------->
 
 let resultadoSeis = funcionSumarTodo (5, 4, 3, 2, 1);
 
@@ -104,4 +93,16 @@ function funcionSumarTodo(){
 }
 
 console.log(resultadoSeis);
+
+
+// (8.) Function ARROW TIPE      ------------------------->
+
+// Is used CONST because It gonna save the reference of the function. That reference should't change. 
+// It doesn't need the word FUNCTION and it doesn't need RETURN
+const  miFuncionFlecha = (a,b) => (a+b);
+let resultadoCinco = miFuncionFlecha(2,3);
+console.log(resultadoCinco);
+
+
+
 
